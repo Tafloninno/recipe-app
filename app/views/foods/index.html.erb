@@ -1,3 +1,25 @@
-<h2>Welcome to Foods index </h2>
+<div class="food_table_container">
+  <a href="<%=request.path%>/new">
+    <%= link_to new_food_path(), class: "links" do %>
+      Add food
+    <% end %>
+  </a>
 
-<button class = 'add-food'><%= link_to 'Add Food', new_food_path%></button>
+  <div class="food_table_wrapper">
+    <div>
+      <table class="food_table">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Measurement Unit</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+       
+      </table>
+    </div>
+  </div>
+
+</div>
