@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.navbar ul {
+  display: flex;
+  gap: 30px;
+}
+
+ul li {
+  list-style: none;
+}
