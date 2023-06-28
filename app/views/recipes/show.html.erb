@@ -1,2 +1,48 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<div class="container">
+  <h1 class="text-center my-2"><%= @recipe.name %></h1>
+
+    <div class="col-md-8">
+      <p>Preparation Time: <%= @recipe.preperation_time %></p>
+      <p>Cooking Time: <%= @recipe.cooking_time %></p>
+      <p>Step go here...</p>
+      <div class="col-md-8">
+          <button class="btn btn-primary">Generate Shopping List</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-4">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Ingredients
+          </button>
+        </div>
+    </div>
+   <hr>
+
+
+   <table class="table table-hover table-bordered mt-4 table-responsive{-sm|-md|-lg|-xl} ">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name%></td>
+            <td>$<%= food.price%></td>
+            <td><%= food.quantity%> <%= food.measurement_unit %></td>
+            <td>
+              <%= button_to "Delete", user_food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+</div>
