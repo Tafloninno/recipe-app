@@ -1,40 +1,39 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-
-  def index
-    @recipes = current_user.recipes
-  end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
-
   def new
     @recipe = Recipe.new
   end
 
+  # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
+    @user = current_user
+    @recipe = @user.recipes.new(recipes_params)
     if @recipe.save
-      flash[:success] = 'Recipe succesfully added'
-      redirect_to recipes_path
+      redirect_to recipes_path, notice: 'recipe was successfully created'
     else
-      flash[:error] = 'Error: Recipe could not be added'
-      render :new
+      render :new, alert: "Couldn't create recipe for user"
     end
   end
 
+  # GET /recipes or /recipes.json
+  def index
+    @recipes = Recipe.all
+  end
+
+  # GET /recipes/1 or /recipes/1.json
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
+  # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    flash[:notice] = 'You deleted Recipe successfully'
-    redirect_back(fallback_location: root_path)
   end
 
   private
 
+  # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.permit(:name, :description, current_user.id)
   end
 end
