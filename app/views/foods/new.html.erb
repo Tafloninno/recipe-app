@@ -2,5 +2,42 @@
  
 <%= form_with(model: @food) do |form| %>
 
- 
+  <div class="new_food_form_wrapper">
+
+    <div class="header_wrapper">
+      <div>
+        <%= link_to "Back to foods", foods_path, class: "links" %>
+      </div>
+    </div>
+
+    <div class="input_container">
+      <%= form.text_field :name, 
+            placeholder: "Enter food name", class: "add_food_input" %>
+    </div>
+
+    <div class="input_container">
+      <%= form.text_field :measurement_unit,
+            placeholder: "Enter measurement unit", class: "add_food_input" %>
+    </div>
+
+    <div class="input_container">
+      <%= form.text_field :price,
+            placeholder: "Enter price", class: "add_food_input" %>
+    </div>
+
+    <div class="input_container">
+      <%= form.number_field :quantity,
+            placeholder: "Enter quantity", class: "add_food_input" %>
+    </div>
+
+    <div class="input_container">
+      <%= form.hidden_field :user_id, value: current_user.id,
+            placeholder: "Enter username", class: "add_food_input" %>
+    </div>
+
+    <div>
+        <%= form.submit "Add Food", class: "button" %>
+    </div>
+
+  </div>
 <% end %>
