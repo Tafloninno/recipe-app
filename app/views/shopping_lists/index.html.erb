@@ -41,7 +41,7 @@
             <span><%= total_quantity %> <%= food.measurement_unit %></span>
           </td>
           <td>
-            <% total_price = food.recipe_foods.sum { |f| f.quantity * f.food.price } %>
+            <% total_price = foods.recipe_foods.sum { |f| f.quantity * f.food.price } %>
             $<%= total_price %>
           </td>
         </tr>
