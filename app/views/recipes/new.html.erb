@@ -1,18 +1,38 @@
-<h1> Create new Recipe </h1>
-
-<%= form_with model: @recipe, url: user_recipes_path do |f| %>
-    <%= f.label :name  %> 
-    <%= f.text_field :name %> <br/>
-    <%= f.label :preperation_time %>
-    <%= f.number_field :preperation_time %> <br/>
-    <%= f.label :cooking_time %>
-    <%= f.number_field :cooking_time %> <br/>
-    <%= f.label :description %>
-    <%= f.text_field :description %> <br/>
-
-    <%= f.submit %>
-<% end %>
-
-<div>
+<section class="sign container flex">
+<div class= "menu">
   <%= link_to "Back to recipes", user_recipes_path %>
 </div>
+<h1> Create new Recipe </h1>
+
+<div class="form flex">
+<%= form_with model: @recipe, url: user_recipes_path do |f| %>
+  <div class='field flex'>
+   
+  <%= f.text_field :name, placeholder: "Name" %> <br/>
+  </div>
+
+  <div class='field flex'>
+    <%= f.number_field :preperation_time , placeholder: "Preparation time" %> <br/>
+  </div>
+
+  <div class='field flex'>
+    <%= f.number_field :cooking_time, placeholder: "Cooking time" %> <br/>
+  </div>
+
+<div class='field flex'>
+    <%= f.text_area :description, cols: 20, rows: 10, placeholder: "description" %> <br/>
+</div>
+
+<div class='field flex'>
+<div>
+<%= f.check_box :public %>
+<span">Public</span>
+</div>
+</div>
+
+
+    <%= f.submit 'Create Recipe', class: 'submit' %>
+<% end %>
+
+
+</section>
