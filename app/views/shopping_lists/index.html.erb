@@ -1,0 +1,24 @@
+<div class="shopping_lists_container">
+  <h2 class="header">
+    Shopping List
+  </h2>
+
+  <div class="totals">
+    <div class="total">
+      <h4>
+        The amount of food items to buy:
+      </h4>
+      <p>
+        <%= @foods.length %>
+      </p>
+    </div>
+    <div class="total">
+      <h4>
+        The total value of food needed:
+      </h4>
+      <p>
+        $<%= @total_price %>
+      </p>
+    </div>
+  </div>
+</div>
