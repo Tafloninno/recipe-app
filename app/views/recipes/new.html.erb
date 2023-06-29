@@ -1,0 +1,18 @@
+<h1> Create new Recipe </h1>
+
+<%= form_with model: @recipe, url: user_recipes_path do |f| %>
+    <%= f.label :name  %> 
+    <%= f.text_field :name %> <br/>
+    <%= f.label :preperation_time %>
+    <%= f.number_field :preperation_time %> <br/>
+    <%= f.label :cooking_time %>
+    <%= f.number_field :cooking_time %> <br/>
+    <%= f.label :description %>
+    <%= f.text_field :description %> <br/>
+
+    <%= f.submit %>
+<% end %>
+
+<div>
+  <%= link_to "Back to recipes", user_recipes_path %>
+</div>

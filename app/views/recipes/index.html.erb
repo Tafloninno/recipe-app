@@ -1,5 +1,25 @@
-<h2>Recipe 1</h2>
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="customSwitch1">
-  <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-</div>
+<h1> Recipes</h1>
+<h3> List of recipes </h3>
+<%= button_to "Create new recipe", 
+            new_user_recipe_path,
+            method: :get %>
+<% if @recipes.any? %>
+        <% @recipes.each do |recipe| %>
+            <section>
+                <div>
+                     <%= link_to recipe.name, 
+                     user_recipe_path(current_user, recipe),
+                        method: :get %> 
+                        <%= button_to "remove", 
+                            user_recipe_path(current_user, recipe),
+                            method: :delete %> 
+                </div>
+
+                 <div>
+                        <%= recipe.description %>
+                </div>
+            </section>
+        <% end %>
+<% else %>
+    <p> There are no recipes yet. </p>
+<% end %>
