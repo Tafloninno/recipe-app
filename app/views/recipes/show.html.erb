@@ -1,48 +1,82 @@
-<div class="container">
-  <h1 class="text-center my-2"><%= @recipe.name %></h1>
+<section class="container flex food-placeholder">
+<div class="food flex">
+<% if can? :manage, @recipe or @recipe.public %>
+  <h1 class="title"><%= @recipe.name %></h1>
+    <div class="flex recipe-detail">
+    <div class="flex detail-col">
+      <div class="flex time"> 
+        <p>Preparation Time: <%= @recipe.preperation_time %></p>
+      </div>
 
-    <div class="col-md-8">
-      <p>Preparation Time: <%= @recipe.preperation_time %></p>
+      <div>
+      <input
+        type="checkbox"
+        class="checkbox absolute z-10 cursor-pointer opacity-0"
+        <% if @recipe.public %>
+        checked='checked'
+        <% end %>
+      />
+    <span>Public</span>
+      </div>
+
+    </div>
+
+    <div class="flex time">
       <p>Cooking Time: <%= @recipe.cooking_time %></p>
+    </div> 
+
+    <div class="flex time">
       <p>Step go here...</p>
-      <div class="col-md-8">
-          <button class="btn btn-primary">Generate Shopping List</button>
-        </div>
     </div>
+    <div class="flex detail-col">
 
-
-    <div class="row">
-
-        <div class="col-md-4">
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add Ingredients
-          </button>
+    <% if can? :manage, @recipe %>
+          <div class = "btn-link">
+          <%= link_to "Generate Shopping List", user_recipe_general_shopping_list_index_path(@user, @recipe), class: '' %>
         </div>
-    </div>
-   <hr>
 
+        <div class = "btn-link">
+          <%= link_to "Add ingredient", new_user_recipe_recipe_food_path(@user, @recipe), class: '' %>
+        </div>
+      </div> 
+      <div class = "hr">
+      </div>
+   <% end %>
 
    <table class="table table-hover table-bordered mt-4 table-responsive{-sm|-md|-lg|-xl} ">
       <thead>
         <tr>
           <th scope="col">Name</th>
-          <th scope="col">Price</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <% @foods.each do |food| %>
+        <% @recipe_foods.each do |recipe_food| %>
           <tr>
-            <td><%= food.name%></td>
-            <td>$<%= food.price%></td>
-            <td><%= food.quantity%> <%= food.measurement_unit %></td>
-            <td>
-              <%= button_to "Delete", user_food_path(food.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-            </td>
+            <td><%= recipe_food.food.name%></td>
+            <td><%= recipe_food.quantity%> <%= recipe_food.food.measurement_unit %></td>
+            <td>$<%= recipe_food.quantity * recipe_food.food.price%></td>
+            <% if can? :manage, recipe_food.recipe %>
+                  <td class = "flex td-gap">
+                    <%= link_to "Modify", edit_user_recipe_recipe_food_path(@user, @recipe, recipe_food)%>
+                 
+                    <%= button_to "Remove", user_recipe_recipe_food_path(@user, @recipe, recipe_food) %>
+                  </td>
+                  <% end %>
+
+                  <% if cannot? :manage , @recipe %>
+                    <td>
+                      <span>No actions for you here</span>
+                    </td>
+                  <% end %>
           </tr>
         <%end%>
       </tbody>
     </table>
-</div>
+    <% else %>
+      <p>Sorry, you don't have access to this recipe</p>
+    <% end %> 
+    </div>
+</section>
