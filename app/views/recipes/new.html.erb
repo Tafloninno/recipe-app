@@ -5,7 +5,7 @@
 <h1> Create new Recipe </h1>
 
 <div class="form flex">
-<%= form_with model: @recipe, url: user_recipes_path do |f| %>
+<%= form_with model: @recipe, url: recipes_path do |f| %>
   <div class='field flex'>
    
   <%= f.text_field :name, placeholder: "Name" %> <br/>
