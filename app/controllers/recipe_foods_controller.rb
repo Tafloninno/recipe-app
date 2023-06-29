@@ -1,48 +1,67 @@
 class RecipeFoodsController < ApplicationController
+  before_action :set_recipe_food, only: %i[edit update destroy]
+  before_action :set_recipe, only: %i[show edit new create destroy]
+  before_action :set_food, only: %i[create update]
+  before_action :set_user, only: %i[index show new edit create]
+
   def new
     @recipe_food = RecipeFood.new
-    @recipe = Recipe.find(params[:recipe_id])
-    @remaining_foods = remaining_foods
+  end
+
+  def edit
+    @recipe_food
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
-    @recipe_food = RecipeFood.new(recipe_id: @recipe.id, food_id: recipe_food_params[:food_id],
-                                  quantity: recipe_food_params[:quantity])
+    @recipe_food = RecipeFood.new(recipe: @recipe, food: @food, quantity: recipe_food_params[:quantity])
+
     if @recipe_food.save
-      flash[:notice] = 'Food added successfully !'
-      redirect_to recipe_path(@recipe)
+      flash[:success] = 'Recipe food was successfully created.'
+      redirect_to user_recipe_url(@user, @recipe)
     else
-      flash[:notice] = 'Invalid Entry'
-      redirect_to current_path
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @recipe_food.update(food: @food, quantity: recipe_food_params[:quantity])
+      flash[:success] = 'Recipe food was successfully updated.'
+      redirect_to user_recipe_url(@user, @recipe)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
-    @recipe_food = @recipe.recipe_foods.all.find(params[:id])
-    flash[:notice] = if @recipe_food.destroy
-                       'Food Removed Successfully '
-                     else
-                       'Invalid Transaction'
-                     end
-    redirect_to recipe_path(@recipe)
+    if @recipe_food.destroy
+      flash[:success] = 'Recipe food was successfully removed.'
+    else
+      flash.now[:error] = 'Error: Recipe food could not be removed'
+    end
+    redirect_to user_recipe_url(@user, @recipe)
   end
 
   private
 
-  def recipe_food_params
-    params.require(:recipe_food).permit(:food_id, :quantity)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
-  def remaining_foods
-    total_foods = current_user.foods
-    total_recipe_foods = []
-    current_user.recipes.includes(:recipe_foods).each do |recipe|
-      recipe.recipe_foods.includes(:food).each do |recipe_food|
-        total_recipe_foods << recipe_food.food
-      end
-    end
-    total_foods - total_recipe_foods
+  def set_recipe
+    @recipe = set_user.recipes.find(params[:recipe_id])
+  end
+
+  def set_recipe_food
+    @recipe_food = set_recipe.recipe_foods.find(params[:id])
+  end
+
+  def set_food
+    @food = set_user.foods.find(recipe_food_params[:food_id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipe_food_params
+    params.require(:recipe_food).permit(:food_id, :quantity)
   end
 end
