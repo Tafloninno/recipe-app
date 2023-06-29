@@ -1,24 +1,21 @@
-<h1> Recipes</h1>
-<h3> List of recipes </h3>
-<%= link_to "Create new recipe", 
-            new_recipe_path %>
-<% if @recipes.any? %>
-        <% @recipes.each do |recipe| %>
-            <section>
-                <div>
-                     <%= link_to recipe.name, 
-                     recipes_path(current_user, recipe),
-                        method: :get %> 
-                        <%= button_to "remove", 
-                            recipes_path(current_user, recipe),
-                            method: :delete %> 
-                </div>
 
-                 <div>
-                        <%= recipe.description %>
-                </div>
-            </section>
-        <% end %>
+<h1>Recipes</h1>
+<h3>List of recipes</h3>
+<%= link_to "Create new recipe", new_recipe_path %>
+
+<% if @recipes.any? %>
+  <% @recipes.each do |recipe| %>
+    <section>
+      <div>
+        <%= link_to recipe.name, recipe_path(recipe), method: :get %>
+        <%= button_to "remove", recipe_path(recipe), method: :delete %>
+      </div>
+
+      <div>
+        <%= recipe.description %>
+      </div>
+    </section>
+  <% end %>
 <% else %>
-    <p> There are no recipes yet. </p>
+  <p>There are no recipes yet.</p>
 <% end %>
