@@ -10,7 +10,7 @@
                      recipes_path(current_user, recipe),
                         method: :get %> 
                         <%= button_to "remove", 
-                            user_recipe_path(current_user, recipe),
+                            recipes_path(current_user, recipe),
                             method: :delete %> 
                 </div>
 
