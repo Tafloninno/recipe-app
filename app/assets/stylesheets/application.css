@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +36,35 @@
 li .nav_link {
   text-decoration: none;
   color: black;
+} */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 5px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 6rem;
+}
+
+.navbar .nav_link {
+  margin-right: 10px;
+}
+
+.navbar .logout-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
 }
 
 .button {
