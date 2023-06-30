@@ -96,3 +96,24 @@ li .nav_link{
   font-weight: bold;
 }
 
+.food_table th,
+.food_table td {
+  padding: 12px 15px;
+}
+
+.added_food_details_table thead tr {
+  background-color: transparent;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid #33333342;
+}
+
+.food_table tbody tr {
+  border-bottom: 1px solid white;
+}
+
+
+.food_table tbody tr:last-of-type {
+  border-bottom: 2px solid black;
+}
