@@ -13,15 +13,86 @@
  *= require_tree .
  *= require_self
  */
+.navbar{
+  width: 100%;
+  padding: 5px 12px;
+  box-shadow: 1px 1px  rgb(116, 113, 113);
+}
 .navbar ul {
   display: flex;
   gap: 30px;
 }
-
-ul li {
+.navbar ul li{
+  
   list-style: none;
+  text-decoration: none;
+}
+li .nav_link{
+  text-decoration: none;
+  color: black;
 }
 
-table {
-  border: 1px solid black;
+.button {
+  background-color: rgb(50, 193, 240);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
+.button:hover {
+  background-color: lightgray;
+}
+
+.food_table_container {
+  width: 60%;
+  padding: 0 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-left: 7rem;
+  border-radius: 5px;
+}
+
+.food_table_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0 0 0 1px inset;
+}
+
+.new_food_form_wrapper {
+  width: 40%;
+  padding: 1rem;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  background-color: #f5f5f5;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0 0 0 1px inset;
+}
+
+.food_table {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
+}
+
+.food_table thead tr {
+  background-color: lightgray;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+}
+
