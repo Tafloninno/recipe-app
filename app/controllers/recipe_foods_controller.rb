@@ -20,7 +20,7 @@ class RecipeFoodsController < ApplicationController
     @food = @recipe.foods.find(params[:id])
     @recipe_food = RecipeFood.find_by(food_id: @food.id)
     @recipe_food.destroy
-    flash[:notice] = 'Ingredient removed successfully'
+    flash[:notice] = 'Ingredient deleted successfully'
     redirect_back(fallback_location: root_path)
   end
 

@@ -8,15 +8,15 @@
         <p><%= "Preparation Time: #{@recipe.preparation_time} hour"%></p>
         <% if !current_user.nil? && current_user.id == @recipe.user_id %>
           <%= form_for @recipe do |f| %>
-            <div class="custom-control custom-switch">
+            <div class="switch">
               <%= f.check_box :public, id: "visibility-toggle", class: "custom-control-input" %>
               <%= f.label :public, class: "custom-control-label", for: "visibility-toggle" %>
             </div>
-            <%= f.submit "Update Visibility", class: "btn btn-primary" %>
+            <%= f.submit "change visibility", class: "remove" %>
           <% end %>
         <% end %>
       </div>
-      <p><%= "Cooking Time: #{@recipe.cooking_time} hour"%></p>
+      <p><%= "Cooking Time: #{@recipe.cooking_time} min"%></p>
       <p><%= "Steps to prepare: #{@recipe.description}"%></p>
     </div>
   </div>
@@ -46,7 +46,7 @@
             <td><%= @quantity %></td>
             <td><%= "$ #{food.price * @quantity}" %></td>
             <% if !current_user.nil? && current_user.id == @recipe.user_id %>
-              <td><%= button_to "remove", recipe_recipe_food_path(@recipe.id, food.id), method: :delete, class:'btn btn-danger' %></td>
+              <td><%= button_to "remove", recipe_recipe_food_path(@recipe.id, food.id), method: :delete, class:'remove' %></td>
             <% end %>
           </tr>
         <% end %>
