@@ -219,3 +219,65 @@ input::placeholder {
 .table_shopping {
   border: 1px solid black;
 }
+
+
+
+
+
+
+
+
+.food-placeholder {
+  padding: 20px;
+}
+
+
+
+.title {
+  text-align: center;
+  font-size: 24px;
+}
+.container li{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+  border: 1px solid black;
+  padding: 5px;
+  margin: auto;
+}
+.public {
+  list-style-type: none;
+  padding: 0;
+}
+
+.line {
+  margin-bottom: 20px;
+}
+
+
+
+.recipe-cost div {
+  margin-right: 10px;
+}
+
+.btn-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-right a {
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.btn-right a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
