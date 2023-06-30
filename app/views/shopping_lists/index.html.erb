@@ -1,0 +1,51 @@
+<div class="shopping_lists_container">
+  <h2 class="header">
+    Shopping List
+  </h2>
+
+  <div class="totals">
+    <div class="total">
+      <h4>
+        The amount of food items to buy:
+      </h4>
+      <p>
+        <%= @foods.length %>
+      </p>
+    </div>
+    <div class="total">
+      <h4>
+        The total value of food needed:
+      </h4>
+      <p>
+        $<%= @total_price %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="shopping_lists_table_container">
+  <table class="recipe_table">
+    <thead>
+      <tr class="head">
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody class="shopping_body">
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td>
+            <% total_quantity = food.recipe_foods.sum(:quantity) %>
+            <span><%= total_quantity %> <%= food.measurement_unit %></span>
+          </td>
+          <td>
+            <% total_price = food.recipe_foods.sum { |f| f.quantity * f.food.price } %>
+            $<%= total_price %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
