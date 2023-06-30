@@ -13,10 +13,14 @@
  *= require_tree .
  *= require_self
  */
-.navbar{
-  width: 100%;
-  padding: 5px 12px;
-  box-shadow: 1px 1px  rgb(116, 113, 113);
+ .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 .navbar ul {
   display: flex;
@@ -162,4 +166,22 @@ input::placeholder {
 
 .links:hover {
   background-color: rgb(54, 63, 67);
+}
+.totals{
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  padding: 20px 120px;
+}
+.total{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.shopping_lists_table_container{
+  width: 100%;
+  padding: 20px 120px;
+}
+.table_shopping{
+  border: 1px solid black;
 }
