@@ -5,16 +5,16 @@
 
 <% if @recipes.any? %>
   <% @recipes.each do |recipe| %>
-    <section>
+    <div class="recipe_container">
       <div>
-        <%= link_to recipe.name, recipe_path(recipe), method: :get %>
-        <%= button_to "remove", recipe_path(recipe), method: :delete %>
+        <%= link_to recipe.name, recipe_path(recipe), method: :get, class: "recipe-link" %>
+        <%= button_to "remove", recipe_path(recipe), method: :delete, class: "remove-button" %>
       </div>
 
       <div>
         <%= recipe.description %>
       </div>
-    </section>
+    </div>
   <% end %>
 <% else %>
   <p>There are no recipes yet.</p>

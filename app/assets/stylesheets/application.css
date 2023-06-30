@@ -221,17 +221,9 @@ input::placeholder {
 }
 
 
-
-
-
-
-
-
 .food-placeholder {
   padding: 20px;
 }
-
-
 
 .title {
   text-align: center;
@@ -278,6 +270,33 @@ input::placeholder {
 .btn-right a:hover {
   background-color: #333;
   color: #fff;
+}
+
+.recipe_container{
+  width: 60%;
+  display: flex;
+  padding: 12px;
+  border: 1px solid black;
+  margin: auto;
+  gap: 50px;
+  margin-top: 2rem;
+}
+.recipe-link {
+  display: inline-block;
+  color: navy;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.remove-button {
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  margin-top: 2rem;
 }
 
 
