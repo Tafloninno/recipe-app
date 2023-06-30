@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,16 +22,18 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
+
 .navbar ul {
   display: flex;
   gap: 30px;
 }
-.navbar ul li{
-  
+
+.navbar ul li {
   list-style: none;
   text-decoration: none;
 }
-li .nav_link{
+
+li .nav_link {
   text-decoration: none;
   color: black;
 }
@@ -117,7 +119,6 @@ li .nav_link{
   border-bottom: 1px solid white;
 }
 
-
 .food_table tbody tr:last-of-type {
   border-bottom: 2px solid black;
 }
@@ -167,21 +168,25 @@ input::placeholder {
 .links:hover {
   background-color: rgb(54, 63, 67);
 }
-.totals{
+
+.totals {
   width: 100%;
   display: flex;
   gap: 12px;
   padding: 20px 120px;
 }
-.total{
+
+.total {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.shopping_lists_table_container{
+
+.shopping_lists_table_container {
   width: 100%;
   padding: 20px 120px;
 }
-.table_shopping{
+
+.table_shopping {
   border: 1px solid black;
 }
