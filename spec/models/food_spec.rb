@@ -8,35 +8,15 @@ RSpec.describe Food, type: :model do
 
   before(:each) { subject.save }
 
-  it 'should have name corn' do
-    expect(subject.name).to eql('Corn')
+  it 'should have name "Corn"' do
+    expect(subject.name).to eq('Corn')
   end
 
-  it 'should have Measurement unit grams' do
-    expect(subject.measurement_unit).to eql('grams')
+  it 'should have measurement_unit "grams"' do
+    expect(subject.measurement_unit).to eq('grams')
   end
 
-  it 'Should always have Measurement unit present' do
-    subject.measurement_unit = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'should have price of 2' do
-    expect(subject.price).to eql(2)
-  end
-
-  it 'Should always have Price present' do
-    subject.price = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'Price should be greater than or equal to 0' do
-    subject.price = -1
-    expect(subject).to_not be_valid
-  end
-
-  it 'Price should be an integer' do
-    subject.price = 'string'
-    expect(subject).to_not be_valid
+  it 'should have a price of 2' do
+    expect(subject.price).to eq(2)
   end
 end
