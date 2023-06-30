@@ -147,3 +147,19 @@ input::placeholder {
   align-items: center;
   justify-content: space-between;
 }
+
+.links {
+  background-color: rgb(50, 193, 240);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 12px;
+  align-self: flex-end;
+  text-align: center;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.links:hover {
+  background-color: rgb(54, 63, 67);
+}
