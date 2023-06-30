@@ -8,7 +8,7 @@
     <li class="line flex">
       <div id="<%= dom_id recipe %>">
  
-        <div>
+        <div class="details">
               <h2>
                 <%= recipe.name %> <br>
                 <span>
@@ -39,7 +39,7 @@
     </li>
     <div class = "btn-right">
       <p>
-        <%= link_to "Open Recipe", user_recipe_path(recipe.user, recipe), class: '' %>
+        <%= link_to "Open Recipe", recipe_path(recipe.user, recipe), class: '' %>
       </p>
     </div>
   <% end %>

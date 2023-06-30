@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
-.navbar {
+
+/* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +37,43 @@
 li .nav_link {
   text-decoration: none;
   color: black;
+} */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 5px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 6rem;
+}
+
+.navbar .nav_link {
+  margin-right: 10px;
+}
+
+.navbar .logout-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.btn-right a {
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
 }
 
 .button {
@@ -189,4 +227,152 @@ input::placeholder {
 
 .table_shopping {
   border: 1px solid black;
+}
+
+.food-placeholder {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+}
+
+.container li {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+  border: 1px solid black;
+  padding: 5px;
+  margin: auto;
+}
+
+.public {
+  list-style-type: none;
+  padding: 0;
+}
+
+.line {
+  margin-bottom: 20px;
+}
+
+.recipe-cost div {
+  margin-right: 10px;
+}
+
+.btn-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-right a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.recipe_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recipe_container h1,
+h3 {
+  text-align: center;
+}
+
+.recipe_wrapper {
+  width: 60%;
+  display: flex;
+  padding: 12px;
+  border: 1px solid black;
+  margin: auto;
+  gap: 50px;
+  margin-top: 2rem;
+}
+
+.recipe-link {
+  display: inline-block;
+  color: navy;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.remove-button {
+  padding: 6px 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.new-recipe-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-recipe-link {
+  color: navy;
+  text-decoration: none;
+  font-size: 24px;
+  text-align: center;
+}
+
+.form-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-flex {
+  margin-bottom: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-checkbox {
+  margin-right: 5px;
+}
+
+.checkbox-label {
+  font-size: 14px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-link {
+  text-align: start;
+  text-decoration: none;
+  margin-top: 5rem;
 }

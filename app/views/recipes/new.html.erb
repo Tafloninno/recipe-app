@@ -1,35 +1,36 @@
-<section class="sign container flex">
+<section class="new-recipe-container">
   <div class="menu">
-    <%= link_to "Back to recipes", recipes_path %>
+    <%= link_to "Back to recipes", recipes_path, class: "back-link" %>
   </div>
   <h1> Create new Recipe </h1>
 
-  <div class="form flex">
-    <%= form_with model: @recipe, url: recipes_path do |f| %>
-      <div class='field flex'>
-        <%= f.text_field :name, placeholder: "Name" %> <br/>
-      </div>
+  <div class="form-flex">
+  <%= form_with model: @recipe, url: recipes_path do |f| %>
+    <div class='field-flex'>
+      <%= f.text_field :name, placeholder: "Name", class: "form-input" %> <br/>
+    </div>
 
-      <div class='field flex'>
-        <%= f.number_field :preparation_time , placeholder: "Preparation time" %> <br/>
-      </div>
+    <div class='field-flex'>
+      <%= f.number_field :preparation_time, placeholder: "Preparation time", class: "form-input" %> <br/>
+    </div>
 
-      <div class='field flex'>
-        <%= f.number_field :cooking_time, placeholder: "Cooking time" %> <br/>
-      </div>
+    <div class='field-flex'>
+      <%= f.number_field :cooking_time, placeholder: "Cooking time", class: "form-input" %> <br/>
+    </div>
 
-      <div class='field flex'>
-        <%= f.text_area :description, cols: 20, rows: 10, placeholder: "description" %> <br/>
-      </div>
+    <div class='field-flex'>
+      <%= f.text_area :description, cols: 20, rows: 10, placeholder: "Description", class: "form-textarea" %> <br/>
+    </div>
 
-      <div class='field flex'>
-        <div>
-          <%= f.check_box :public %>
-          <span>Public</span>
-        </div>
+    <div class='field-flex'>
+      <div class="checkbox">
+        <%= f.check_box :public, class: "form-checkbox" %>
+        <span class="checkbox-label">Public</span>
       </div>
+    </div>
 
-      <%= f.submit 'Create Recipe', class: 'submit' %>
-    <% end %>
-  </div>
+    <%= f.submit 'Create Recipe', class: 'submit-button' %>
+  <% end %>
+</div>
+
 </section>
